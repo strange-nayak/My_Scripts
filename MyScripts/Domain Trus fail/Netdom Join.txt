@@ -1,0 +1,1 @@
+NETDOM JOIN HBADM9305804FTR /Domain:bsg.ad.adp.com /Userd:nayakadmin /PasswordD:* /UserO:Cerberus /PasswordO:* /ReBoot:30

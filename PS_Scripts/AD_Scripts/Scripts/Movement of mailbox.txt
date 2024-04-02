@@ -1,0 +1,12 @@
+New-MoveRequest -Identity  LBTGA  -TargetDatabase  JOSQDB04 -SuspendWhenReadyToComplete
+
+
+Get-MoveRequestStatistics LBTGA
+
+
+Resume-MoveRequest -Identity LBTGA
+
+Set-CASMailbox  LBTGA -MAPIBlockOutlookRpcHTTP:$false
+
+
+Set-Mailbox -Identity  LBTGA -UseDatabaseQuotaDefaults:$true

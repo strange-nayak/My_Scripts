@@ -1,0 +1,15 @@
+Get-ADPrincipalGroupMembership DyavanapallyD | select name | Export-csv -path C:\GroupsDyavanapallyD.csv
+
+
+Exchange shell
+$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri http://EDIPVWEXMAA1.bsg.ad.adp.com/PowerShell/ -Authentication Kerberos -Credential $UserCredential
+Import-PSSession $Session
+
+Moving a mailbox to another database
+New-MoveRequest -Identity 'Sudhakar.Hanumanthrao@broadridge.com' -TargetDatabase "INDB007" -Whatif
+
+Add-ADAccounttoRDPUser -Computer BGLRM9100256 -Trustee bsg\ramidir
+
+Get-WinEvent -ComputerName BGLRM9100536 -FilterHashtable @{logname = 'System'; id = 1074} -MaxEvents 10 | Format-Table –wrap
+
+Get-WinEvent -ComputerName BGLRM9100601 -FilterHashtable @{logname = 'System'; id = 1074, 6005, 6006, 6008 } -MaxEvents 10 | Format-Table –wrap

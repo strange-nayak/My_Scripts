@@ -1,0 +1,3 @@
+setup.exe /CONFIGURATIONFILE=MyConfiguration2008.ini /INDICATEPROGRESS
+
+Pause

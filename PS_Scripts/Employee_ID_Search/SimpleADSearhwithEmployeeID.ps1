@@ -1,0 +1,2 @@
+﻿Import-Csv EmployeeID.csv |%{Get-AdUser -filter "employeeNumber -eq '$($_.EmployeeId)'"} | Select Name, SamAccountName
+#Import-Csv EmployeeID.csv |%{Get-AdUser -filter "employeeNumber -eq '$($_.EmployeeId)'"} | Select Name, SamAccountName | Export-Csv employeedata.csv

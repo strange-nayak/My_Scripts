@@ -1,0 +1,1 @@
+﻿Get-Content "C:\Nayak_testlab\PS_Scripts\AD_Scripts\Input\User_List.csv" | foreach-object { Get-ADUser -Filter "mail -eq '$_'" | Select sAMAccountName, emailaddress, Name, distinguishedName, physicalDeliveryOfficeName, employeeNumber } | Export-Csv "C:\Nayak_testlab\PS_Scripts\AD_Scripts\Output\UserDetails.csv"

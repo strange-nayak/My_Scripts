@@ -1,0 +1,24 @@
+﻿import-module activedirectory
+
+$Servers = "bsg.ad.adp.com","jsq.bsg.ad.adp.com"
+
+$Users = Import-Csv "C:\Users\PuligaddaS\Desktop\PowerGUI\email.csv"
+
+$data=foreach($server in $Servers)
+{
+
+foreach($User in $Users){ 
+
+$ADUser = Get-ADUser  -Filter { Emailaddress -eq "$user.Email"} -Server $server  | Select-Object  Name,SAMAccountName,Mail
+
+    New-Object -TypeName PSObject -Property @{
+
+        Name = $ADUser.Name
+        SAMAccountName = $ADUser.SamAccountName
+        Mail = $ADUser.Mail
+        
+        }
+    }
+ }
+
+$data | select-object Name,SAMAccountName, Mail | Export-Csv "C:\Users\PuligaddaS\Desktop\PowerGUI\Email_USer.CSV"

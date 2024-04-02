@@ -1,0 +1,1 @@
+Get-MailboxPermission -Identity sistun

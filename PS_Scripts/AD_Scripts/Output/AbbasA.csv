@@ -1,0 +1,23 @@
+GroupCategory,name,SamAccountName
+Security,Domain Users,Domain Users
+Security,EdgeXen-RDP6.5,EdgeXen-RDP6.5
+Security,park-icifs2-rfp-rw,park-icifs2-rfp-rw
+Security,park-icifs2-spa-rw,park-icifs2-spa-rw
+Distribution,GSMS - Global Sales Strategy & Operations,GSMS - Global Sales Strategy & Operations
+Security,BR_India_SalesSupport,BR_India_SalesSupport
+Security,HBIPBWDRSFA1-BR India Sales Support-rw,HBIPBWDRSFA1-BR India Sales Support-rw
+Security,BR-ISE-VPN-GLOBAL,BR-ISE-VPN-GLOBAL
+Security,Domain users BLR,Domain users BLR
+Distribution,BANGALORE INDIA ALL ASSOCIATES_GBS,BANGALORE INDIA ALL ASSOCIATES_GBS
+Distribution,Sublist John Hogan Org_GBS,Sublist John Hogan Org_GBS
+Distribution,ALL_Leader1_John Hogan Org_GBS,ALL_Leader1_John Hogan Org_GBS
+Security,BR-Office365FullUserLicenseGroup,BR-Office365FullUserLicenseGroup
+Security,Clientless_TLS_VPN_Approved_Users,Clientless_TLS_VPN_Approved_Users
+Distribution,ALL_Leader0_Tim Gokey Org_GBS,ALL_Leader0_Tim Gokey Org_GBS
+Security,ALL_Jenkins_DevOps_Access List_GBS,ALL_Jenkins_DevOps_Access List_GBS
+Distribution,ALL_Leader0_Tim Gokey Org_Associates Only_GBS,ALL_Leader0_Tim Gokey Org_Associates Only_GBS
+Security,UC-WebEx-Global,UC-WebEx-Global
+Security,BR-ISE-DUO-EMP,th
+Distribution,BRIndia_ERT_Members_Bangalore,BRIndia_ERT_Members_Bangalore
+Distribution,BR India FTE All,BR India FTE All
+Distribution,Test BR India FTE All,Test BR India FTE All

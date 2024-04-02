@@ -1,0 +1,37 @@
+Oh this one drove me nuts!
+
+Symptom: You delete a local user profile folder, reboot the computer and somehow the folder reappears!? Not only that, but the recreated folders seem to interfere with domain users (with roaming profiles) logging into that machine again.
+
+Examining recreated folders, you’ll find the following file structure…
+C:Users%username%AppDataLocalMicrosoftInputPersonalizationTextHarvesterTextHarvester.dat
+
+Delete it, it will come back again! So, what’s going on here?
+
+Well, to be honest I’m not exactly sure – but here’s what I’ve observed and how I fixed it.
+
+1. The TextHarvester.dat file is releated to the Tablet Input Service (Touch and Pen input).
+2. The folders are recreated when the Windows Search service is stopped and restarted.
+3. Not really related but still relevant – is that Windows Vista/7 stores user profile information in the registry as well as in the filesystem so just deleting User folders isn’t good enough.
+
+What I did to solve it…
+
+1. Make Windows Search index only relevant stuff. In Group Policy, Enable…
+Computer Configuration\Administrative Templates\Windows Components\Search\Prevent indexing of certain file types
+By default, when you enable this it pre-populates a list of crappy file types with .dat included. OK.
+
+‘gpupdate /force’ your workstation if necessary to enact the policy.
+
+2. Download this handy command line tool from HelgeKlein.
+
+3. Make a batch file as below and use this to delete all unused profiles from your workstations!
+
+
+net stop WSearch
+net stop TabletInputService
+DelProf2.exe /u
+net start TabletInputService
+net start WSearch
+
+This stops the two offending services, then clears the profiles and then starts the services again.
+
+Hopefully you have some success with this as I know it was driving me up the wall! Good luck.

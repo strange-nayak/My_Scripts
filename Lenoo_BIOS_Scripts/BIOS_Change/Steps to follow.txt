@@ -1,0 +1,7 @@
+1. Open a CMD window in administrative mode.
+2. Get to the path where this folder is saved.
+  eg. CD C:\Shared\BIOS_Change
+3. Call the batch file "LaptopCameraEnable.bat"
+4. Restart the machine.
+
+Camera should be enabled now.

@@ -1,0 +1,303 @@
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>for /F %i in (test.txt) do shutdown -r -m \\%i -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADT4400520 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADT4400521 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADT4500100 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADT4500101 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADT4500102 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADT4500103 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0007 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0011 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0038 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0043 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0050 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0053 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0054 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0058 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0073 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0099 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0109 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0111 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0116 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0121 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0122 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0129 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0130 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0134 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0135 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0140 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0141 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0150 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0152 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0160 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0162 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0168 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0172 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0175 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0186 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0205 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0229 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0230 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0232 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0236 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0237 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0238 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0243 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0245 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0246 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0250 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0253 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0261 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0265 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0273 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0276 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0299 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0304 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0308 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0313 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0319 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0337 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0342 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0355 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0356 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0358 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0359 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0381 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0382 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0383 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0385 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0386 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0391 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0393 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0411 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0413 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0422 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0425 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0438 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0440 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0458 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0461 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0463 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0484 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0498 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0501 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0511 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0517 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0519 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0522 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0523 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0526 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0529 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0532 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0533 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0536 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0537 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0540 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0544 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0548 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0549 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0551 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0554 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0561 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0586 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0597 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0605 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0606 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0607 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0608 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0613 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0617 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0619 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0622 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0623 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0638 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0641 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0644 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0646 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0654 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0658 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0664 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADWS0667 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10003 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10010 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10013 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10014 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10015 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10016 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10017 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10018 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10021 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10023 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10024 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBADX10025 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBIDVWAPP2012 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBIDVWAPPA24 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBIDVWJNBA02 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBIDVWQTPA01 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBIDVWQTPA02 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBIDVWR7QTP03 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBIDVWR7QTP05 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HBIDVWSQLD12 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HYDBETA13 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HYDBETA30 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HYDLT1141 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HYDWS5185 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HYDWS5308 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\HYDWS5315 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\VOLANTE1 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\VOLANTE2 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\VOLANTE3 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\VOLANTE4 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>shutdown -r -m \\VOLANTE5 -f -t 20 -c "Restarting for Patch update" 
+
+C:\Users\Cerberus\d\maintenance - 30- Aug- 2015\maintainence desktop - test>Pause
+Press any key to continue . . . 

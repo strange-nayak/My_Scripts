@@ -1,0 +1,446 @@
+<html>
+
+<!--
+-->
+
+<head>
+
+<script language="vbscript">
+window.resizeto 650,425
+</script>
+
+<title>Batch File Launcher</title>
+<HTA:APPLICATION 
+	 ID="IDhtaLauncher" 
+	 APPLICATIONNAME="Batch File Launcher"
+	 SCROLL="no"
+	 SINGLEINSTANCE="no"
+	 MAXIMIZEBUTTON="no"
+	 MINIMIZEBUTTON="yes"
+>
+
+<STYLE TYPE="text/css">
+* {
+   padding:0;
+   margin:0;
+	 text-transform: none;
+	 font-family: Verdana, Arial, Helvetica, sans-serif;
+	 font-size: 11px;
+	 color: #2E2E2E;
+}
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #465C71;
+	margin: 10px 10px 10px 10px;
+}
+
+
+
+</STYLE>
+
+</head>
+
+<SCRIPT LANGUAGE="VBScript">
+Option Explicit
+const HKEY_CURRENT_USER = &H80000001
+Const ForReading = 1
+Const ForWriting = 2
+Const wbemFlagReturnImmediately = &h10
+Const wbemFlagForwardOnly = &h20
+
+Dim oFSO, oFile, oShell, oWMIService, oEnv, oNet
+Dim iHTAProcessID
+Dim g_sFileName, g_sResultsBadFolder, g_sResultsFolder, g_sUserName
+
+Set oFSO = CreateObject("Scripting.FileSystemObject")
+Set oShell = CreateObject("WScript.Shell")
+Set oWMIService = GetObject("winmgmts:\\.\root\CIMV2")
+Set oEnv = oShell.Environment("Process")
+
+
+Set oNet = CreateObject("WScript.NetWork") 
+g_sUserName = oNet.UserName
+
+'Creates an on-the-fly listbox based on the contents of the text file uat.ini
+
+Sub Window_Onload
+	' App,Env,LaunchScriptPath
+	Dim arrCommandLine, EntrySplitter, iAppCount, strTmp, sRemoteFilePath, sLocalFilePath
+	Dim sLine, sLocalDir, sRemoteDir, sUATpath, sLauncherPath, sLauncherFile
+	Dim arrCL
+	g_sFileName = Trim(Split(IDhtaLauncher.commandLine,".hta""")(0))
+	arrCL = Split(g_sFileName,"\")
+	g_sFileName = arrCL(Ubound(arrCL))
+
+	GetPID
+	
+	PopulateCombos
+End Sub
+
+Sub PopulateOU
+ReDim  arrOUs(10)
+Dim oOption, ou
+arrOUs (0) = "OU=WPLN Desktops,OU=WPLN,DC=bsg,DC=ad,DC=adp,DC=com"
+arrOUs (2) = "OU=DELH Desktops,OU=DELH,DC=bsg,DC=ad,DC=adp,DC=com"
+arrOUs (1) = "OU=PHNX Desktops,OU=PHNX,DC=bsg,DC=ad,DC=adp,DC=com"
+arrOUs (3) = "OU=WLTN Desktops,OU=WLTN,DC=bsg,DC=ad,DC=adp,DC=com"
+
+
+	For Each oOption in cmbOU.Options
+		oOption.RemoveNode
+	Next 
+	
+	For Each ou in arrOUs 
+		Set oOption = Document.createElement("OPTION")
+		oOption.Text = ou 
+		oOption.Value = ou 
+		cmbOU.Add(oOption)
+	Next
+End Sub
+Sub PopulateCombos
+	Dim oFolder, oFiles, oFile, sFile, oOption
+	Set oFolder = oFSO.GetFolder(oShell.CurrentDirectory)
+	Set oFiles = oFolder.Files
+	PopulateOU
+	For Each oOption in cmbFile.Options
+		oOption.RemoveNode
+	Next 
+	For Each oOption in cmbAction.Options
+		oOption.RemoveNode
+	Next 
+	Set oOption = Document.createElement("OPTION")
+	sFile = "[List below]"
+	oOption.Text = sFile 
+	oOption.Value = sFile 
+	cmbFile.Add(oOption)
+	For Each oFile in oFiles 
+		Set oOption = Document.createElement("OPTION")
+		sFile = oFile.name
+		oOption.Text = sFile 
+		oOption.Value = sFile 
+		Select Case UCase(Right(sFile,4))
+		Case ".HTA", ".EXE", ".INI", ".vbs"
+			'ignore
+		Case ".CMD", ".BAT"
+
+			if UCase(Left(sFile,7)) <> "REMOTE_" Then cmbAction.Add(oOption)
+		Case Else
+			cmbFile.Add(oOption)
+		End Select
+	Next
+End Sub
+
+Sub GetPID
+	Dim oExec, colItems, oItem, sCommand
+	If oFSO.FileExists("ParentID.exe") Then
+		sCommand = "ParentID.exe"
+	Else
+		'just in case the exe doesn't come down, have a backup ... this will flash the dos box on the screen
+		sCommand = "%comspec% /k dir c:\ /s"
+	End If
+	Set oExec = oShell.exec(sCommand)
+	Set colItems = oWMIService.ExecQuery("SELECT * FROM Win32_Process Where ProcessId = " & oExec.processid , "WQL", wbemFlagReturnImmediately + wbemFlagForwardOnly)
+	For Each oItem In colItems
+		iHTAProcessID = oItem.ParentProcessId
+	Next
+	'oExec.terminate 'taking this out... adds about 1 second to the laucnh time.
+End Sub
+
+Sub OpenFile()
+	Dim sCommand
+	sCommand = "notepad """ & cmbAction.value & """"
+	oShell.Run sCommand, 1, False
+End Sub
+
+Sub LaunchApp()
+	Dim oFile, sTarget, iCount, sCommand, iCountTotal, sResultsFile, colKeys, iCountDups, strKey, sResultsFileBad
+	Dim oDictionary
+	Dim StartTime
+	StartTime = NOw()
+	Set oDictionary = CreateObject("Scripting.Dictionary")
+	iCountDups = 0
+	StatusText1.innerText = "Executing..."
+	run_button.disabled = true
+	If cmbFile.Value = "[List below]" Then
+		g_sResultsFolder = "Results-" & cmbAction.value & "-" & g_sUserName
+		sResultsFile = g_sResultsFolder & cmbOutput.value
+		g_sResultsBadFolder = "ResultsBad-" & cmbAction.value & "-" & g_sUserName
+		sResultsFileBad = g_sResultsBadFolder & cmbOutput.value
+	Else
+		g_sResultsFolder = g_sFileName  & cmbFile.value
+		sResultsFile = "Results-" & cmbAction.value & "-" & cmbFile.value & cmbOutput.value
+		g_sResultsBadFolder = "ReultsBad" & cmbFile.value
+		sResultsFileBad = "Results-" & cmbAction.value & "_BAD-" & cmbFile.value & cmbOutput.value
+	End If
+
+	If oFSO.FolderExists(g_sResultsBadFolder) Then oFSO.DeleteFolder (g_sResultsBadFolder)
+	If oFSO.FolderExists(g_sResultsFolder) Then oFSO.DeleteFolder (g_sResultsFolder)
+	oFSO.CreateFolder(g_sResultsBadFolder)
+	oFSO.CreateFolder(g_sResultsFolder)
+	
+
+
+
+	oEnv.Item("NoAccessFolder") = g_sResultsBadFolder
+	oEnv.Item("ResultsFolder") = g_sResultsFolder
+	oEnv.Item("ResultsBadFolder") = g_sResultsBadFolder
+	If cmbFile.Value = "[List below]" Then
+		dim arr
+		arr = split(txtList.value, vbcrlf)
+		for each sTarget in arr
+			If Trim(sTarget) <> "" Then
+'comment out, we want to pass in everything				sTarget = UCase(Split(sTarget, " ")(0)) 'make sure we only grab the first 'word' up to the space
+'									sTarget = UCase(Split(sTarget, ",")(0)) 'make sure we only grab the first 'word' up to the comma
+				If oDictionary.Exists(sTarget) Then
+				    iCountDups = iCountDups + 1
+				Else
+				    oDictionary.Add sTarget, sTarget
+				End If
+			End If
+		Next
+	Else
+		Set oFile = oFSO.OpenTextFile(cmbFile.Value, ForReading)
+		Do While oFile.AtEndOfStream <> True
+			sTarget = oFile.ReadLine
+			If sTarget <> "" Then
+'				sTarget = UCase(Split(sTarget, " ")(0)) 'make sure we only grab the first 'word' up to the space
+'				sTarget = UCase(Split(sTarget, ",")(0)) 'make sure we only grab the first 'word' up to the comma
+				If oDictionary.Exists(sTarget) Then
+				    iCountDups = iCountDups + 1
+				Else
+				    oDictionary.Add sTarget, sTarget
+				End If
+			End If
+		Loop
+		oFile.Close
+	End If
+
+Dim iRun, iMax
+On Error Resume Next
+iRun = CInt(trim(txtRun.value))
+if err.number <> 0 then iRun = 30
+iMax = CInt(trim(txtMax.value))
+if err.number <> 0 then iMax = 85
+on Error Goto 0
+
+	colKeys = oDictionary.Keys
+	For Each strKey in colKeys
+		If iCount >= iRun Then
+			'Ensure less than max number of child processes running
+			WaitForProcess "*", iMax, iCountTotal
+			iCount = 0
+		End If
+		iCount = iCount + 1
+		iCountTotal = iCountTotal + 1
+		sTarget = strKey
+		StatusText1.innerText = "Executing TOTALCOUNT=" & iCountTotal & "(" & iCOunt & " of " & iRun & ")"
+
+		
+		oEnv.Item("PasswordO") = txtPasswordO.value
+		If UCase(left(txtUserO.value, 5)) = "COMP\" Then
+			oEnv.Item("UserO") = sTarget & Mid(txtUserO.value,5,100)
+		Else
+			oEnv.Item("UserO") = txtUserO.value
+		End If
+		
+		oEnv.Item("UserD") = txtUserD.value
+		oEnv.Item("PasswordD") = txtPasswordD.value
+
+		oEnv.Item("OU")= Trim(cmbOU.value)
+		oEnv.Item("DOMAIN") = txtDomain.Value
+		oEnv.Item("PAUSE") = cmbPause.value
+
+		sCommand = """" & cmbAction.value & """ " & sTarget
+		oShell.Run sCommand, 7, False
+	Next
+
+	StatusText1.innerText = "Executing TOTALCOUNT=" & iCountTotal & "(Complete)" & vbcrlf & "Waiting for processes to complete."
+	WaitForProcess "*", 0, iCountTotal
+	StatusText1.innerText = "Executing TOTALCOUNT=" & iCountTotal & "(Complete)" & vbcrlf & "Compiling Results"
+
+	WriteResults g_sResultsFolder, sResultsFile
+	WriteResults g_sResultsBadFolder, sResultsFileBad
+
+	If oFSO.FolderExists(g_sResultsBadFolder) Then oFSO.DeleteFolder (g_sResultsBadFolder)
+	If oFSO.FolderExists(g_sResultsFolder) Then oFSO.DeleteFolder (g_sResultsFolder)
+
+	StatusText1.innerText = "Executing TOTALCOUNT=" & iCountTotal & "(Complete " & iCountDups & " duplicates skipped); Time taken:"  & DateDiff("s", StartTime, Now()) & " seconds."
+	If oFSO.FileExists("Sleep.vbs") Then oFSO.DeleteFile "Sleep.vbs"
+
+	Dim sCurFile, sCurAction 
+	sCurFile = cmbFile.value
+	sCurAction = cmbAction.value
+	PopulateCombos
+	cmbFile.value = sCurFile
+	cmbAction.value = sCurAction
+	
+
+	Set oFile = oFSO.GetFile(sResultsFileBad)
+	If oFile.Size > 0 Then 
+		oShell.Run sResultsFileBad, 1
+	Else
+		oFile.delete
+	End If
+	Set oFile = oFSO.GetFile(sResultsFile)
+	If oFile.Size > 0 Then 
+		oShell.Run sResultsFile, 1
+	Else
+		oFile.delete
+	End If
+
+
+	run_button.disabled = False
+End Sub
+
+Sub WriteResults(Folder, File)
+	Dim oFolder, oFiles, sFile, oFileResult, sHeaderFile
+
+	On Error Resume Next
+	Do While oFSO.FileExists(File) 
+		oFSO.DeleteFile(File)
+		If err.number > 0 Then
+			Msgbox "Error deleting file: " & File & vbCrLF & "Please close the file and continue!"
+		End If
+	Loop
+	On Error Goto 0
+
+	Set oFileResult = oFSO.OpenTextFile(File, ForWriting, True)
+
+	Set oFolder = oFSO.GetFolder(Folder)
+	Set oFiles = oFolder.Files
+	sHeaderFile = Folder & "\Header.txt"
+	If oFSO.FileExists(sHeaderFile) Then
+		Set oFile = oFSO.OpenTextFile(sHeaderFile, ForReading)
+		oFileResult.Write(oFile.ReadAll)
+		oFIle.Close
+		oFSO.DeleteFile(sHeaderFile)
+	End If
+
+	For Each oFile in oFiles 
+		Set oFile = oFSO.OpenTextFile(oFile, ForReading)
+		oFileResult.Write(oFile.ReadAll)
+	Next
+	oFileResult.Close
+End Sub
+
+Sub WaitForProcess(sProcessName, iGoal, NumStarted)
+	Dim iCount, colItems, oItem, sString, iLastCount, arrCommandlines(), i
+	sString = "Waiting for " & sProcessName & " to complete... "
+	iCount = 1
+	Do While iCount > 0
+		iCount = 0
+		if sProcessName = "*" Then
+			Set colItems = oWMIService.ExecQuery("SELECT * FROM Win32_Process Where ParentProcessId = " & iHTAProcessID , "WQL", wbemFlagReturnImmediately + wbemFlagForwardOnly)
+		Else
+			Set colItems = oWMIService.ExecQuery("SELECT * FROM Win32_Process Where Name = '" & sProcessName & "' AND ParentProcessId = " & iHTAProcessID , "WQL", wbemFlagReturnImmediately + wbemFlagForwardOnly)
+		End If
+		For Each oItem In colItems
+			If oItem.CommandLine <> "" Then 
+				iCount = iCount + 1
+				ReDim Preserve arrCommandlines(iCount)
+				arrCommandlines(iCount) = sProcessName & " " & iCount &": " & oItem.CommandLine
+			End If
+		Next
+		StatusText1.innerText = iCount & " child process(es) running... (" & NumStarted & ")"
+
+		If iCount <= iGoal Then 
+			Exit DO
+		Else
+			StatusText1.innerText = iCount & " child processes running... waiting... (" & NumStarted & ")"
+			Sleep 500
+		End If
+	Loop
+End Sub
+
+Sub Sleep(MilliSeconds)
+	Dim SleepFile, objSleepFile
+'	On Error Resume Next
+	SleepFile = "Sleep.vbs"
+	If Not oFSO.FileExists(SleepFile) Then
+		Set objSleepFile = oFSO.CreateTextFile(SleepFile,True)
+		objSleepFile.Write "WScript.Sleep WScript.Arguments(0)"
+		objSleepFile.Close
+	End If
+	oShell.Run """" & SleepFile & """ " & MilliSeconds,0,True
+End Sub
+
+</SCRIPT>
+
+
+<body>
+
+<div id="App"></div>
+<div id="Version"></select></div>
+
+
+<table style="border: groove #4B6C9E 2px; width: 100%" >
+	<tr>
+        	<td style="font-weight: bold;" align="right">
+			<select size=1 name="cmbOutput">
+				<option value=".csv">.csv</option>
+				<option value=".txt">.txt</option>
+			</select>
+			<select size=1 name="cmbPause">
+				<option value="False">Pause: No</option>
+				<option value="True">Pause: Yes</option>
+			</select>
+		</td>
+
+		<td>
+			<input name="lblCounts" type="text" disabled="True" value="Run/Max:" id="txtOutput"  />
+			<input name="lblCounts" type="text" value="35" id="txtRun" />
+        		<input name="lblCounts" type="text" value="80" id="txtMax" />
+		</td>
+
+	</tr>
+</table>
+<table style="border: groove #4B6C9E 2px; width: 100%" >
+	<tr>
+        <td style="width: 30%; font-weight: bold;" align="right"><input name="txtApp" type="text" disabled="True" value="Target List:" id="txtFile" width="25px" /></td>
+		<td style="width: 6%" align="center"></td>
+		<td style="width: 64%" align="left"><select name="cmbFile"></select></td>
+	</tr>
+	<tr>
+        <td style="width: 30%; font-weight: bold;" align="right"><input name="txtAction" type="text" disabled="True" value="Action File:" id="txtAction" width="25px"/></td>
+		<td style="width: 6%" align="center"></td>
+		<td style="width: 64%" align="left"><select name="cmbAction"></select><input type="button" value="Open" name="cmdOpenFile"  onClick="OpenFile"><p> </td>
+	</tr>
+	<tr>
+        	<td style="width: 30%; font-weight: bold;" align="right"><input name="txtTargetList" type="text" disabled="True" value="Targets List:" id="txtTargetList" width="25px"/></td>
+		<td style="width: 3%" align="center"></td>
+		<td style="width: 67%" align="left"><textarea name="txtList" rows=10 cols=63></textarea></td>
+	</tr>
+	<tr>
+        	<td style="width: 30%; font-weight: bold;" align="right"><input name="lblUserAccessDevice" type="text" disabled="True" value="Connect With:" id="txtFile" width="25px" /></td>
+		<td style="width: 6%" align="center"></td>
+		<td style="width: 64%" align="left"><input type="text" name="txtUserO" value="comp\administrator"><input type="password" name="txtPasswordO"></td>
+	</tr>
+	<tr>
+        	<td style="width: 30%; font-weight: bold;" align="right"><input name="lblUserAccessDevice" type="text" disabled="True" value="AD user:" id="txtFile" width="25px" /></td>
+		<td style="width: 6%" align="center"></td>
+		<td style="width: 64%" align="left"><input type="text" name="txtUserD" value="jsq\"><input type="password" name="txtpasswordD"></td>
+	</tr>
+	<tr>
+        	<td style="width: 30%; font-weight: bold;" align="right"><input name="lblDomain" type="text" disabled="True" value="Join to Domain:" id="txtFile" width="25px" /></td>
+		<td style="width: 6%" align="center"></td>
+		<td style="width: 64%" align="left"><input type="text" name="txtDomain" value="BSG"></td>
+	</tr>
+	<tr>
+        	<td style="width: 30%; font-weight: bold;" align="right"><input name="lblOU" type="text" disabled="True" value="OU:" id="txtFile" width="25px" /></td>
+		<td style="width: 6%" align="center"></td>
+		<td style="width: 64%" align="left"><select name="cmbOU" value=""></td>
+	</tr>
+
+</table>
+</div>
+<div class="Status" id="StatusText1"></div>
+
+<br>
+<span id=span_footer>
+	<center>
+		<input type="button" value="Execute" name="run_button"  onClick="LaunchApp"><p> 
+	</center>
+</span>
+
+</body>

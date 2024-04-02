@@ -1,0 +1,1 @@
+for /f %%i in (2.txt) do -m \\%%i dism /online /Enable-Feature /FeatureName:TelnetClient

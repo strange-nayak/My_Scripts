@@ -1,0 +1,4 @@
+[cctk]
+virtualization=enable
+vtfordirectio=on
+wakeonlan=enablewakeonwlan

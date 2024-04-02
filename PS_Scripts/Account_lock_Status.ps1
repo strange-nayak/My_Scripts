@@ -1,0 +1,1 @@
+﻿Get-WinEvent -ComputerName JSIPSWWDCA04 -FilterHashtable @{Logname='Security';Id=4740} | Where-Object {$_.message -match "raghuwanshis"} | Fl

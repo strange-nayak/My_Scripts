@@ -1,0 +1,11 @@
+Robocopy "d:\users\menkenc\application data\microsoft\signatures" f:\backup\menkenc\signatures *.* /e
+Robocopy "d:\users\menkenc\Desktop" f:\backup\menkenc\Desktop *.* /e /R:0 /W:0
+Robocopy "d:\users\menkenc\Documents" f:\backup\menkenc\Documents *.* /e /XD "My Music" /XD "My Pictures" /XD "My Videos" /R:0 /W:0
+Robocopy "d:\users\menkenc\Downloads" f:\backup\menkenc\Downloads *.* /e /R:0 /W:0
+Robocopy "d:\users\menkenc\Favorites" f:\backup\menkenc\Favorites *.* /e /R:0 /W:0
+Robocopy "d:\users\menkenc\Music" f:\backup\menkenc\Music *.* /e /R:0 /W:0
+Robocopy "d:\users\menkenc\Pictures" f:\backup\menkenc\Pictures *.* /e /R:0 /W:0
+Robocopy "d:\users\menkenc\Videos" f:\backup\menkenc\Videos *.* /e /R:0 /W:0
+Robocopy "d:\users\menkenc\appData\Local\Microsoft\outlook" "f:\backup\menkenc\outlook"  *.pst \e /R:1 /W:0
+echo Done
+pause

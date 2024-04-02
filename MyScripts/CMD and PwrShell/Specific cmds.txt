@@ -1,0 +1,6 @@
+rundll32.exe keymgr.dll, KRShowKeyMgr    --->Credential manager
+
+runas /nop /u: cerberus        ------To login with admin cmd
+
+"PowerShell Command for Account lockout status"
+Get-WinEvent -ComputerName JSIPSWWDCA04 -FilterHashtable @{Logname='Security';Id=4740} | Where-Object {$_.message -match "username"} | Fl

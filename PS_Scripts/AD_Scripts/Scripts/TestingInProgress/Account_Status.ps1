@@ -1,0 +1,1 @@
+﻿Get-ADUser -Identity nayaks -properties PasswordLastSet, PasswordExpired, PasswordNeverExpires | ft Name, PasswordLastSet, PasswordExpired, PasswordNeverExpires

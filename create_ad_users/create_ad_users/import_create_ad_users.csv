@@ -1,0 +1,2 @@
+Implement,GivenName,LastName,Initials,OfficeName,Description,Mail,StreetAddress,City,PostalCode,State,Country,Company,Department,EmployeeID,ExtensionAttribute1,Title,Phone,Manager,ProfilePath,ScriptPath,HomeDirectory,HomeDrive,Password,PasswordNeverExpires,Enabled,TargetOU,ProxyAddresses
+Yes,Prakash,Pathak,,,RQST00004456534,your@email.com,,,,,,,,,,,,,,,\\10.159.11.16\Home$\%username%,H:,Welcome1,TRUE,TRUE,"OU=BGLR Users,OU=BGLR",

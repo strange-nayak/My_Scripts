@@ -1,0 +1,85 @@
+﻿Import-Module ActiveDirectory
+
+# Disable Inactive users
+$Who= whoami
+$whoAmI= ($Who -Split '\\')[1]
+$Email=get-Aduser -identity $whoAmI -Properties * |select mail
+$EmailId= $Email.mail
+
+Write-host " Processing..."
+
+#Importing Users from CSV file
+$Users = Import-Csv -Path "C:\Users\PuligaddaS\Desktop\PowerGUI\User.csv" -Header "AccountName"
+
+#Adding Date
+$Date= date
+$DateStr = $Date.ToString("MM/dd/yyyy")
+$Data = foreach($User in $Users)
+{
+   $AccountName= $User.AccountName
+   
+   #Checking User domain
+   $UPN = (Get-ADUser -Identity $AccountName -Property UserPrincipalName -Server bsg.ad.adp.com:3268 ).UserPrincipalName
+   $UPNSuffix = ($UPN -Split '@')[1] 
+   $server= $UPNSuffix
+
+    #Updating Description
+    $ADUser = Get-ADUser -Identity $AccountName  -server $server -Properties Description
+    $ADUser.Description = "Disabled Inactivity - $DateStr"
+    
+    #Disabling Account
+    Disable-ADAccount -Identity $AccountName -server $server
+    Set-ADUser -Instance $ADUser
+       
+    New-Object -TypeName psobject -Property @{
+    ADUser = $ADUser.Name
+    Object = $ADUser
+    Description = $ADUser.Description
+     
+	}
+}
+#Mailing Part#
+$Header = @"
+<style>
+
+TABLE {font-family: "Trebuchet MS", sans-serif;border-width: 1px;border-style: solid;border-color: black;border-collapse: collapse;}
+TH {border-width: 1px;padding: 6px;border-style: solid;border-color: black;background-color: #01CFCA;}
+TD {border-width: 1px;padding: 4px;border-style: solid;border-color: black;}
+TR:hover{background-color:#f5f5f5}
+body {
+   
+} 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</style>
+"@
+
+$body =@"
+
+<body>
+  <h3> Below Users are Disabled by {0} </h3>
+
+</body>
+"@ -f $whoAmI
+
+$body1 = $Data | Select-Object -Property  ADUser,Object,Description | ConvertTo-Html -Head $Header -body $body
+
+$fromaddress = $EmailId 
+$toaddress = "GlobalHelpdeskIndiaTeam@broadridge.com" 
+$CCaddress = "Emma.Chadderton@broadridge.com" 
+$Subject = "Action Taken | Inactive User Report Apr302018" 
+$body = $body1
+$smtpserver = "edgsmtp.broadridge.net" 
+ ################
+$message = new-object System.Net.Mail.MailMessage 
+$message.From = $fromaddress 
+$message.To.Add($toaddress) 
+$message.CC.Add($CCaddress) 
+$message.IsBodyHtml = $True 
+$message.Subject = $Subject 
+#$attach = new-object Net.Mail.Attachment($attachment) 
+#$message.Attachments.Add($attach) 
+$message.body = $body 
+$smtp = new-object Net.Mail.SmtpClient($smtpserver) 
+$smtp.Send($message) 

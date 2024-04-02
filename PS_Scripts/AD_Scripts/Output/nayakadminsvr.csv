@@ -1,0 +1,6 @@
+#TYPE Microsoft.ActiveDirectory.Management.ADGroup
+"distinguishedName","GroupCategory","GroupScope","name","objectClass","objectGUID","SamAccountName","SID"
+"CN=Domain Users,CN=Users,DC=bsg,DC=ad,DC=adp,DC=com","Security","Global","Domain Users","group","db8eb22a-70cb-4c68-b3dc-ab2cda418034","Domain Users","S-1-5-21-1064954374-356710528-997385118-513"
+"CN=HBADOUAdmins,OU=ADMIN Groups,OU=ADMIN,DC=bsg,DC=ad,DC=adp,DC=com","Security","Global","HBADOUAdmins","group","c63d1523-36e5-4aaa-bfbe-26aaf03d1542","HBADOUAdmins","S-1-5-21-1064954374-356710528-997385118-9610"
+"CN=BR-Tier1PasswordPolicy,OU=ADMIN Groups,OU=ADMIN,DC=bsg,DC=ad,DC=adp,DC=com","Security","Global","BR-Tier1PasswordPolicy","group","cc1c7c2e-af5c-419c-9b4e-efeb0df0ae93","BR-Tier1PasswordPolicy","S-1-5-21-1064954374-356710528-997385118-116275"
+"CN=BR-AdminServer,OU=EDGE Groups,OU=Edge,DC=bsg,DC=ad,DC=adp,DC=com","Security","Universal","BR-AdminServer","group","440dc7ef-6ee8-40c1-b2a5-50c75262c318","BR-AdminServer","S-1-5-21-1064954374-356710528-997385118-193231"

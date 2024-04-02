@@ -1,0 +1,14 @@
+Follow the below Procedure to set the proxy automaticaly
+---------------------------------------------------------
+
+1. Copy the folder to "C:\Program Files\"
+2. Copy "Setproxy.bat"at "C:\Windows\System32\GroupPolicy\User\Scripts\Logon"
+3. From "RUN" open "gpedit.msc" and goto User Configuration->Windows Settings->Scripts(Logon/Logoff) and Open it
+4. Then Double click on "Logon" and select Add
+5. Click on "Brouse" beside Script Name and select the "Setproxy.bat" file from "C:\Windows\System32\GroupPolicy\User\Scripts\Logon" location. 
+
+Apply & Ok..
+
+
+And Its Done... The system will set the configured proxy automatically whenever an user logs in to that system. :) 
+-------------------------------------------------------------------------------------------------------------------

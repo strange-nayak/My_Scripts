@@ -1,0 +1,4 @@
+Invoke-Command -ComputerName HBADP3000130 -ScriptBlock {C:\Sai\SQL_Server_2008_R2_developer_x86_x64\setup.exe /ConfigurationFile=”C:\Sai\SQL_Server_2008_R2_developer_x86_x64\ConfigurationFile.ini”}
+
+
+Invoke-Command -ComputerName HBADP3000130 -ScriptBlock {C:\Sai\SQL_Server_2008_R2_developer_x86_x64\setup.exe /ConfigurationFile=”C:\Sai\SQL_Server_2008_R2_developer_x86_x64\ConfigurationFile.ini” /INDICATEPROGRESS}

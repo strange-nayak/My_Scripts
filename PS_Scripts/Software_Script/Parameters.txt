@@ -1,0 +1,1 @@
+Get-Content .\Machines.txt | .\Get-InstalledSoftware.ps1 | Export-Csv .\Installed_Softwares.csv

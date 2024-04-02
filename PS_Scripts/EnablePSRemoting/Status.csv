@@ -1,0 +1,4 @@
+#TYPE System.Xml.XmlElement#http://schemas.dmtf.org/wbem/wsman/identity/1/wsmanidentity.xsd#IdentifyResponse
+"wsmid","lang","ProtocolVersion","ProductVendor","ProductVersion"
+"http://schemas.dmtf.org/wbem/wsman/identity/1/wsmanidentity.xsd","","http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd","Microsoft Corporation","OS: 0.0.0 SP: 0.0 Stack: 3.0"
+"http://schemas.dmtf.org/wbem/wsman/identity/1/wsmanidentity.xsd","","http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd","Microsoft Corporation","OS: 0.0.0 SP: 0.0 Stack: 3.0"

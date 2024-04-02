@@ -1,0 +1,19 @@
+Sub CreateWorkSheetByRange()
+'Update 20130829
+Dim WorkRng As Range
+Dim Ws As Worksheet
+Dim arr As Variant
+On Error Resume Next
+xTitleId = "NayaktoolsforExcel"
+Set WorkRng = Application.Selection
+Set WorkRng = Application.InputBox("Range", xTitleId, WorkRng.Address, Type:=8)
+arr = WorkRng.Value
+Application.ScreenUpdating = False
+For i = 1 To UBound(arr, 1)
+    For j = 1 To UBound(arr, 2)
+        Set Ws = Worksheets.Add(after:=Application.ActiveSheet)
+        Ws.Name = arr(i, j)
+    Next
+Next
+Application.ScreenUpdating = True
+End Sub

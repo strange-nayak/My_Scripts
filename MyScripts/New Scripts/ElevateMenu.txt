@@ -1,0 +1,123 @@
+@echo off
+CLS
+goto check_Permissions
+:check_Permissions
+    echo Administrative permissions required. 
+	echo Detecting permissions...
+
+    net session >nul 2>&1
+    if %errorLevel% == 0 (
+        echo Success: Administrative permissions confirmed, Running Menu
+		GOTO MENU
+    ) else (
+        echo Failure: Current permissions inadequate. Exiting.
+		GOTO EXIT
+    )
+
+    pause >nul
+
+:MENU
+ECHO.
+ECHO 1 - SCCM CM
+ECHO 2 - LSD
+ECHO 3 - LSD Update
+ECHO 4 - LAPS Admin
+ECHO 5 - Computer Management
+ECHO 6 - AD Users
+ECHO 7 - SCCM Remote Control
+ECHO 8 - PowerShell
+ECHO 9 - PowerShell ISE
+ECHO.
+ECHO 0 - Exit
+ECHO.
+
+SET /P OPT=Please make a selection %USERNAME%, and press enter: 
+
+if %OPT%==1 GOTO SCCMCM
+if %OPT%==2 GOTO LSD
+if %OPT%==3 GOTO LSDUPDATE
+if %OPT%==4 GOTO LAPS
+if %OPT%==5 GOTO COMPMNG
+if %OPT%==6 GOTO ADUSERS
+if %OPT%==7 GOTO SCCMRC
+if %OPT%==8 GOTO PS
+if %OPT%==9 GOTO PSISE
+if %OPT%==0 GOTO EXIT
+
+GOTO EXIT
+
+:SCCMCM
+start /b "" "C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\Microsoft.ConfigurationManagement.exe"
+SLEEP 5
+CLS
+ECHO Executing: SCCM CM
+ECHO.
+GOTO MENU
+
+:LSD
+start /b "" /D "c:\temp\LSD" "c:\Temp\LSD\FLDT Console.exe"
+SLEEP 5
+CLS
+ECHO Executing: LSD 
+ECHO. 
+GOTO MENU
+
+:LSDUPDATE
+start /b "" /D "C:\Temp\LSD" "C:\Temp\LSD\Copy.CMD"
+SLEEP 5
+CLS
+Echo Executing: LSD Update
+ECHO.
+GOTO Menu
+
+:LAPS
+start /b "" "C:\Program Files\LAPS\AdmPwd.UI.exe"
+SLEEP 5
+CLS
+ECHO Executing: LAPS Admin
+GOTO MENU
+
+:COMPMNG
+start /b "" "c:\windows\system32\compmgmt.msc"
+SLEEP 5
+CLS
+ECHO Executing: Computer Management
+ECHO.
+GOTO MENU
+
+:ADUSERS
+start /b "" "c:\windows\system32\dsa.msc"
+SLEEP 5
+CLS
+ECHO Executing: Active Directory Users
+ECHO.
+GOTO MENU
+
+:SCCMRC
+start /b "" "C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\i386\CmRcViewer.exe"
+SLEEP 5
+CLS
+ECHO Executing: SCCM Remote Control Viewer
+ECHO.
+GOTO MENU
+
+:PS
+start "" "c:\windows\system32\WindowsPowerShell\v1.0\powershell.exe"
+SLEEP 5
+CLS
+ECHO Executing: PowerShell
+ECHO.
+GOTO MENU
+
+:PSISE
+start /b "" /D "c:\windows\system32\WindowsPowerShell\v1.0" "c:\windows\system32\WindowsPowerShell\v1.0\powershell_ise.exe"
+SLEEP 5
+CLS
+ECHO Executing: PowerShell ISE
+ECHO.
+GOTO MENU
+
+:OPTION4
+GOTO EXIT
+
+:EXIT

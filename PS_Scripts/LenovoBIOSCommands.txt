@@ -1,0 +1,41 @@
+$pcnames = Import-Csv pcnames.csv
+foreach ($name in $pcnames){
+(gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("IntegratedCameraAccess,Enable,Tq81bN50,ascii,us")
+(gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings(“Tq81bN50,ascii,us”)
+gwmi -class Lenovo_BiosSetting -namespace root\wmi | ForEach-Object {if ($_.CurrentSetting -ne "") {Write-Host $_.CurrentSetting.replace(","," = ")}}
+}
+
+
+(gwmi -class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("IntegratedCameraAccess,Disable,Tq81bN50,ascii,us")
+(gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings(“Tq81bN50,ascii,us”)
+
+
+
+Get-Content .\PCs.txt | .\Manage-LenovoBiosSettings.ps1 -SetSettings -SupervisorPassword Tq81bN50 | Export-Csv .\BIOS_Settings.csv
+
+
+#Connect to the Lenovo_BiosSetting WMI class
+$SettingList = Get-WmiObject -Namespace root\wmi -Class Lenovo_BiosSetting
+ 
+#Return a list of all configurable settings
+$SettingList | Select-Object CurrentSetting
+ 
+#Return a specific setting and value
+$SettingList | Where-Object CurrentSetting -Like "SettingName*" | Select-Object -ExpandProperty CurrentSetting
+
+
+Get-Content .\Computer.txt | .\Enabling-Powershell-Remoting.ps1 | Export-Csv .\Status.csv
+
+
+psexec \\BGLRT4600217 -s -h powershell.exe -executionPolicy bypass -file BIOS_Change.ps1
+
+
+
+psexec -accepteula \\10.104.64.113 -s -h powershell.exe -executionPolicy bypass -file wmiPS.ps1 -password Tq81bN50 -config testPSfile.txt
+
+
+
+psexec \\BGLRT4600217 -s -d cmd.exe /c -c "C:\Users\nayaks\Downloads\PsExec\BIOS_Change.bat"
+
+
+psexec.exe \\bglrt4600185 -s powershell Enable-PSRemoting -Force

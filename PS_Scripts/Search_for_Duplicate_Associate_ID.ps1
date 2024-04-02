@@ -1,0 +1,1 @@
+﻿Get-ADUser -Filter "employeeNumber -eq 330711" -Properties * | Select Name, employeeNumber

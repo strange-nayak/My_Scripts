@@ -1,0 +1,54 @@
+Name	Type	Description	
+ADMR	Organizational Unit	Ardmore, PA -> office relocated to Philadelphia	
+ANVR	Organizational Unit		
+BKLN	Organizational Unit		
+BLTR	Organizational Unit		
+BSTN	Organizational Unit		
+Builtin	builtinDomain		
+BWAY	Organizational Unit		
+CHIC	Organizational Unit		
+CHLL	Organizational Unit		
+CiscoUCS	Organizational Unit		
+Computers	Container	Default container for upgraded computer accounts	
+COPL	Organizational Unit		
+CORP	Organizational Unit		
+DDLL	Organizational Unit		
+DELH	Organizational Unit		
+DNVR	Organizational Unit		
+Domain Controllers	Organizational Unit	Default container for domain controllers	
+Edge	Organizational Unit		
+FKFT	Organizational Unit		
+ForeignSecurityPrincipals	Container	Default container for security identifiers (SIDs) associated with objects from external, trusted domains	
+FTWN	Organizational Unit		
+GNVA	Organizational Unit		
+HBAD	Organizational Unit		
+HGKG	Organizational Unit		
+Hing	Organizational Unit		
+JBRG	Organizational Unit		
+JOSQ	Organizational Unit		
+LAKE	Organizational Unit		
+LOND	Organizational Unit		
+Managed Service Accounts	Container	Default container for managed service accounts.	
+MBRO	Organizational Unit		
+Microsoft Exchange Security Groups	Organizational Unit		
+MISS	Organizational Unit		
+MTRX	Organizational Unit		
+NewComputers	Organizational Unit		
+Park	Organizational Unit		
+PBDY	Organizational Unit		
+PDNY	Organizational Unit		
+PITT	Organizational Unit		
+PRAG	Organizational Unit		
+SDNY	Organizational Unit		
+SGPR	Organizational Unit		
+SharePointProd	Organizational Unit		
+SharePointQA	Organizational Unit		
+SNDG	Organizational Unit		
+STPB	Organizational Unit		
+TKYO	Organizational Unit		
+TNCK	Organizational Unit		
+Users	Container	Default container for upgraded user accounts	
+Varonis POC	Organizational Unit		
+WLTN	Organizational Unit		
+XenDesktop	Organizational Unit		
+NTDS Quotas	Unknown		
